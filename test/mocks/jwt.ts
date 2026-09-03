@@ -7,8 +7,5 @@ export const generateMockToken = async (module: TestingModule, user: User) => {
       email: user.email,
       id: user.id,
     },
-    {
-      secret: process.env.JWT_SECRET,
-    },
   );
 };
