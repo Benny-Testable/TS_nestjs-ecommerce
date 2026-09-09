@@ -12,6 +12,13 @@ This project is an ecommerce application built using Nest.js and Postgres. The f
 
 ## Getting Started
 
+This branch requires **Node.js 22**. Use nvm or a similar version manager:
+
+```bash
+nvm install
+nvm use
+```
+
 To get started with this project, follow these steps:
 
 - Clone this repository to your local machine.
