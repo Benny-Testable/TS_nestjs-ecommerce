@@ -7,6 +7,10 @@ const envFilePath: string = getEnvPath(
   resolve(__dirname, '../..', 'common/envs'),
 );
 config({ path: envFilePath });
+
+const sslEnabled = process.env.DATABASE_SSL === 'true';
+const queryLogging = process.env.DATABASE_LOGGING === 'true';
+
 export const dataSourceOptions: DataSourceOptions = {
   type: 'postgres',
   host: process.env.DATABASE_HOST,
@@ -17,6 +21,7 @@ export const dataSourceOptions: DataSourceOptions = {
   entities: [process.env.DATABASE_ENTITIES],
   migrations: ['dist/database/migration/history/*.js'],
   logger: 'simple-console',
-  synchronize: false, // never use TRUE in production!
-  logging: true, // for debugging in dev Area only
+  synchronize: false,
+  logging: queryLogging,
+  ssl: sslEnabled ? { rejectUnauthorized: true } : false,
 };

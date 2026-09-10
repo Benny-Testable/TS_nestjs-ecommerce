@@ -1,0 +1,8 @@
+* @Benny-Testable/maintainers
+
+/src/api/auth/ @Benny-Testable/maintainers
+/src/common/audit/ @Benny-Testable/maintainers
+/src/common/security/ @Benny-Testable/maintainers
+/infra/ @Benny-Testable/maintainers
+/docs/compliance/ @Benny-Testable/maintainers
+/.github/ @Benny-Testable/maintainers

@@ -36,3 +36,13 @@ lerna-debug.log*
 
 #database data
 database-data
+
+# local secrets (root copies of env files)
+.env
+.env.*
+!.env.example
+
+# terraform local state
+**/.terraform/
+*.tfstate
+*.tfstate.*

@@ -1,0 +1,13 @@
+node_modules
+dist
+coverage
+database-data
+.git
+.gitignore
+*.md
+documentation
+infra
+docs
+test
+src/common/envs
+*.env

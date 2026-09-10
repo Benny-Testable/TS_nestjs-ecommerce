@@ -3,7 +3,9 @@ import { resolve } from 'path';
 
 export function getEnvPath(dest: string): string {
   const env: string | undefined = process.env.NODE_ENV;
-  const fallback: string = resolve(`${dest}/.env`);
+  const filename = env ? `${env}.env` : 'development.env';
+  const configured = resolve(dest, filename);
+  const fallback = resolve(dest, 'development.env');
 
-  return filePath;
+  return existsSync(configured) ? configured : fallback;
 }

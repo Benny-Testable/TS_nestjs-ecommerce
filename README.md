@@ -5,10 +5,23 @@ This project is an ecommerce application built using Nest.js and Postgres. The f
 
 ## Technology Stack
 
-- Nest.js
-- PostgreSQL
-- TypeORM
+- Nest.js 9 (Node 22)
+- PostgreSQL 15 (TypeORM)
+- JWT authentication with Customer / Merchant / Admin roles
 - Jest
+- AWS infrastructure via Terraform (`infra/terraform`)
+
+## Architecture notes
+
+This is a **NestJS HTTP API**, not a Next.js app. Local Postgres is `docker-compose.yml`. Staging/production shape is ECS Fargate + private RDS, documented in `infra/terraform/README.md`.
+
+Compliance artifacts (not legal certifications):
+
+- FERPA: `docs/compliance/ferpa/`
+- SOC 2-oriented controls: `docs/compliance/soc2/`
+- Security intake: `SECURITY.md`
+
+After pulling, run `npm run migration:run` so the `audit_log` table exists.
 
 ## Getting Started
 

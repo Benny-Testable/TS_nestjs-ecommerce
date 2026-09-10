@@ -1,7 +1,9 @@
 version: '3.8'
+# Local development database only. Production Postgres is defined in
+# infra/terraform/rds.tf and is not publicly reachable.
 services:
   postgres:
-    image: postgres
+    image: postgres:15
     environment:
       POSTGRES_USER: hassan
       POSTGRES_PASSWORD: password
@@ -9,4 +11,4 @@ services:
       - ./database-data:/var/lib/postgresql/data/
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - 5432:5432
+      - 127.0.0.1:5432:5432

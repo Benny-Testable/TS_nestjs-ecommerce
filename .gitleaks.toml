@@ -1,0 +1,11 @@
+title = "nestjs-ecommerce"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Local non-production fixtures already tracked in git"
+paths = [
+  '''src/common/envs/development.env''',
+  '''src/common/envs/test.env''',
+]
