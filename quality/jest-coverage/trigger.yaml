@@ -1,0 +1,10 @@
+tool: jest-coverage
+language: typescript
+language_version: "22"
+technique: "Code Coverage"
+classification: "Coverage"
+target_files: [../../src/]
+run:
+  command: "npm run test:cov"
+expects:
+  coverage_report: true

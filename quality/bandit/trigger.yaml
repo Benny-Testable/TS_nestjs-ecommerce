@@ -1,0 +1,10 @@
+tool: bandit
+language: python
+language_version: "3"
+technique: "Static Application Security Testing"
+classification: "SAST Finding"
+target_files: [../../services/pricing-engine/pricing_engine.py]
+run:
+  command: "python3 -m bandit -r services/pricing-engine/pricing_engine.py"
+expects:
+  engine_runs: true

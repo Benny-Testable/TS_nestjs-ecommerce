@@ -1,0 +1,10 @@
+tool: pydriller
+language: python
+language_version: "3"
+technique: "Repository Mining"
+classification: "Change History"
+target_files: [../../.git/]
+run:
+  command: "python3 -c \"from pydriller import Repository; print(next(Repository('.').traverse_commits()).hash)\""
+expects:
+  engine_runs: true

@@ -1,0 +1,10 @@
+tool: jest
+language: typescript
+language_version: "22"
+technique: "Unit Testing"
+classification: "Test Execution"
+target_files: [../../src/, ../../src/**/*.spec.ts]
+run:
+  command: "npm test"
+expects:
+  tests_pass: true

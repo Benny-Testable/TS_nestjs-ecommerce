@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "mutate": ["workers/order-totals/src/totals.js"],
+  "testRunner": "mocha",
+  "mochaOptions": { "spec": ["workers/order-totals/test/**/*.test.js"] },
+  "reporters": ["clear-text", "json"],
+  "coverageAnalysis": "perTest",
+  "ignorePatterns": ["node_modules", "dist", "services/**/.venv", "reports"]
+}

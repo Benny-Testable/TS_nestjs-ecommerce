@@ -1,0 +1,10 @@
+tool: nyc
+language: javascript
+language_version: "22"
+technique: "Code Coverage"
+classification: "Coverage"
+target_files: [../../workers/order-totals/]
+run:
+  command: "npx nyc --reporter=text mocha 'workers/order-totals/test/**/*.test.js'"
+expects:
+  coverage_report: true

@@ -1,0 +1,10 @@
+tool: pytest-cov
+language: python
+language_version: "3"
+technique: "Code Coverage"
+classification: "Coverage"
+target_files: [../../services/pricing-engine/]
+run:
+  command: "cd services/pricing-engine && python3 -m pytest --cov=pricing_engine --cov-report=term-missing"
+expects:
+  coverage_report: true

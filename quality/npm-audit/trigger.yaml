@@ -1,0 +1,10 @@
+tool: npm-audit
+language: javascript
+language_version: "22"
+technique: "Software Composition Analysis"
+classification: "SCA Finding"
+target_files: [../../package.json, ../../package-lock.json]
+run:
+  command: "npm audit --json"
+expects:
+  audit_report: true

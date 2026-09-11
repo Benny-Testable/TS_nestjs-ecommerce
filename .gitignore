@@ -46,3 +46,18 @@ database-data
 **/.terraform/
 *.tfstate
 *.tfstate.*
+
+# python / go / mutation
+.venv/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+*.pyc
+reports/
+.nyc_output/
+coverage/
+.stryker-tmp/
+reports/
+

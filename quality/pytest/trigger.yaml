@@ -1,0 +1,10 @@
+tool: pytest
+language: python
+language_version: "3"
+technique: "Unit Testing"
+classification: "Test Execution"
+target_files: [../../services/pricing-engine/]
+run:
+  command: "cd services/pricing-engine && python3 -m pytest"
+expects:
+  tests_pass: true

@@ -5,11 +5,25 @@ This project is an ecommerce application built using Nest.js and Postgres. The f
 
 ## Technology Stack
 
-- Nest.js 9 (Node 22)
+- Nest.js 9 (Node 22) HTTP API — TypeScript + Jest
+- JavaScript checkout worker — mocha / nyc / Stryker
+- Python FX + tax engine — pytest / bandit
+- Go inventory reservation — `go test`
 - PostgreSQL 15 (TypeORM)
 - JWT authentication with Customer / Merchant / Admin roles
-- Jest
 - AWS infrastructure via Terraform (`infra/terraform`)
+
+```text
+shopper
+  └─ NestJS API (src/)           TypeScript  JWT, products, users
+       ├─ workers/order-totals   JavaScript  member/coupon/bulk math
+       ├─ services/pricing-engine Python     ProductVariationPrice FX + VAT
+       └─ services/inventory     Go          stock reserve/release
+infra/terraform                  HCL         ECS + RDS
+```
+
+Quality tool entrypoints live in `quality/*/trigger.yaml`.
+
 
 ## Architecture notes
 
@@ -76,9 +90,17 @@ npm run start:dev
 ```
 
 ## Testing
-To run the tests, follow these steps:
-1. Install dependencies: `npm install`
-2. Run the tests: `npm run test`
+
+```bash
+npm test              # TypeScript / Jest (NestJS)
+npm run test:js       # JavaScript / mocha (order totals)
+npm run test:python   # Python / pytest (pricing engine)
+npm run test:go       # Go tests (inventory)
+make test             # all of the above
+```
+
+Coverage: `npm run test:cov`, `npm run test:cov:js`. Mutation: `npm run test:mutation`.
+
 
 ## Contributing
 If you're interested in contributing to this project, please follow these guidelines:

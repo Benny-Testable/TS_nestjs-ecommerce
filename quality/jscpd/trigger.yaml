@@ -1,0 +1,10 @@
+tool: jscpd
+language: javascript
+language_version: "22"
+technique: "Copy-Paste Detection"
+classification: "Duplication"
+target_files: [../../.jscpd.json, ../../src/, ../../workers/]
+run:
+  command: "npx jscpd src workers"
+expects:
+  duplication_report: true

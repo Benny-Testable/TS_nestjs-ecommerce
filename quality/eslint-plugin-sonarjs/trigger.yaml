@@ -1,0 +1,10 @@
+tool: eslint-plugin-sonarjs
+language: javascript
+language_version: "22"
+technique: "Static Analysis"
+classification: "SAST Finding"
+target_files: [../../workers/order-totals/.eslintrc.json]
+run:
+  command: "npx eslint --no-eslintrc --config workers/order-totals/.eslintrc.json --print-config workers/order-totals/src/totals.js"
+expects:
+  plugin_rules_active: true

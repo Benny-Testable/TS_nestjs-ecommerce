@@ -1,0 +1,9 @@
+tool: gitleaks
+language: secrets
+technique: "Secret Scanning"
+classification: "SAST Finding"
+target_files: [../../.gitleaks.toml]
+run:
+  command: "gitleaks detect --source . --config .gitleaks.toml"
+expects:
+  engine_runs: true

@@ -1,0 +1,9 @@
+tool: ferpa
+language: policy
+technique: "Education Records Privacy"
+classification: "FERPA"
+target_files: [../../docs/compliance/ferpa/]
+run:
+  command: "test -f docs/compliance/ferpa/FERPA.md"
+expects:
+  policy_present: true

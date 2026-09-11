@@ -1,0 +1,10 @@
+tool: checkov
+language: terraform
+language_version: "1.6"
+technique: "Infrastructure as Code Security"
+classification: "IaC Finding"
+target_files: [../../infra/terraform/, ../../.checkov.yaml]
+run:
+  command: "checkov -d infra/terraform --config-file .checkov.yaml"
+expects:
+  engine_runs: true

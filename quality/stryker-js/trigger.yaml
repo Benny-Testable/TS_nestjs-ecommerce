@@ -1,0 +1,10 @@
+tool: stryker-js
+language: javascript
+language_version: "22"
+technique: "Mutation Testing"
+classification: "Mutation Score"
+target_files: [../../workers/order-totals/src/totals.js, ../../stryker.conf.json]
+run:
+  command: "npx stryker run"
+expects:
+  mutation_report: true

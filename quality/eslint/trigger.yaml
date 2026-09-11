@@ -1,0 +1,10 @@
+tool: eslint
+language: typescript
+language_version: "22"
+technique: "Static Analysis"
+classification: "SAST Finding"
+target_files: [../../src/, ../../.eslintrc.js]
+run:
+  command: "npx eslint \"{src,apps,libs,test}/**/*.ts\" --ignore-pattern \"src/database/migration/history/**\""
+expects:
+  engine_runs: true

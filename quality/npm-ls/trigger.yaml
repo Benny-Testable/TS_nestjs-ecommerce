@@ -1,0 +1,10 @@
+tool: npm-ls
+language: javascript
+language_version: "22"
+technique: "Software Composition Analysis"
+classification: "SCA Finding"
+target_files: [../../package-lock.json]
+run:
+  command: "npm ls --all --omit=dev"
+expects:
+  engine_runs: true

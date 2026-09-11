@@ -1,0 +1,9 @@
+tool: soc2
+language: policy
+technique: "Trust Services Criteria"
+classification: "SOC 2"
+target_files: [../../docs/compliance/soc2/]
+run:
+  command: "test -f docs/compliance/soc2/SOC2.md"
+expects:
+  policy_present: true

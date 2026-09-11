@@ -1,0 +1,10 @@
+tool: go-test
+language: go
+language_version: "1.22"
+technique: "Unit Testing"
+classification: "Test Execution"
+target_files: [../../services/inventory/]
+run:
+  command: "go test -C services/inventory ./..."
+expects:
+  tests_pass: true

@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  typescript:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -19,3 +19,42 @@ jobs:
       - run: npx eslint "{src,apps,libs,test}/**/*.ts" --ignore-pattern "src/database/migration/history/**"
       - run: npm test
       - run: npm run build
+
+  javascript:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint:js
+      - run: npm run test:js
+      - run: npm run test:cov:js
+
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: services/pricing-engine
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 -m pip install -e ".[dev]"
+      - run: python3 -m pytest --cov=pricing_engine --cov-report=term-missing
+      - run: python3 -m bandit -r pricing_engine.py
+
+  go:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - run: go test -C services/inventory -cover ./...

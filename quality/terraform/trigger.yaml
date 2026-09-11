@@ -1,0 +1,10 @@
+tool: terraform
+language: hcl
+language_version: "1.6"
+technique: "Infrastructure as Code"
+classification: "IaC"
+target_files: [../../infra/terraform/]
+run:
+  command: "terraform -chdir=infra/terraform fmt -check"
+expects:
+  engine_runs: true

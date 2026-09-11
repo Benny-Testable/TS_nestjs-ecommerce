@@ -1,0 +1,10 @@
+tool: lizard
+language: typescript
+language_version: "22"
+technique: "Cyclomatic Complexity"
+classification: "Complexity"
+target_files: [../../src/, ../../workers/, ../../services/]
+run:
+  command: "lizard src workers services"
+expects:
+  complexity_report: true

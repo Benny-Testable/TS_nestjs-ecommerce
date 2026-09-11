@@ -1,0 +1,10 @@
+tool: go-cover
+language: go
+language_version: "1.22"
+technique: "Code Coverage"
+classification: "Coverage"
+target_files: [../../services/inventory/]
+run:
+  command: "go test -C services/inventory -cover ./..."
+expects:
+  coverage_report: true
